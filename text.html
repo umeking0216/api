@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>課題</title>
+    <link rel="stylesheet" href="css/kadai.css">
+</head>
+<body>
+
+
+<!-- MAP[START] -->
+<h1>月形町見所案内</h1>
+<div id="myMap" style='width:100%;height:700px;'></div>
+<!-- MAP[END] -->
+
+<div id='info1' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+                    月形期待の星、kingが手作りで作ったコワーキングスペース
+</div>
+
+<div id='info2' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    いろんなものがちょうどいいキャンプ場
+</div>
+
+<div id='info3' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    泉質最高、美肌になれる温泉
+</div>
+
+<div id='info4' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    これは機密情報ですが、ゴールデンカムイ実写版のロケ地に決まってます
+</div>
+
+<div id='info5' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    月形町が一望できる展望台
+</div>
+
+<div id='info6' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    ここのジンギスカンを是非炭火で食べてほしい
+</div>
+
+<div id='info7' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    月形でご飯を食べるならここ！おすすめは唐揚げ丼
+</div>
+
+<div id='info8' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    廃校を利用したアートの拠点
+</div>
+
+<div id='info9' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    スマホの電波も通らない山の中でキャンプはいかが？
+</div>
+
+<div id='info10' style="position: absolute; border: 1px solid gray; background-color: white; width: 150px; height:100px; display: none;">
+    ラムサール条約に指定。渡鳥が一斉に飛び立つ「ねぐら立ち」は一見の価値あり。
+</div>
+
+<!-- [ MapTypeId ] https://msdn.microsoft.com/en-us/library/mt712700.aspx -->
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=' async defer></script>
+<script>
+    //Initialization processing
+
+    function GetMap() {
+        const map = new Microsoft.Maps.Map('#myMap', {
+            center: new Microsoft.Maps.Location(43.342577, 141.676067), //Location center position
+            mapTypeId: Microsoft.Maps.MapTypeId.load, //Type: [load, aerial,canvasDark,canvasLight,birdseye,grayscale,streetside]
+            zoom: 13  //Zoom:1=zoomOut, 20=zoomUp[ 1~20 ]
+        });
+
+        let pin1 = new Microsoft.Maps.Pushpin({latitude:43.342583 ,longitude:141.676462}, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title: "Tsukigata LABO"
+        });
+
+        let pin2 = new Microsoft.Maps.Pushpin({latitude:43.339766 ,longitude:141.680868}, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"皆楽公園"
+        });
+
+        let pin3 = new Microsoft.Maps.Pushpin({latitude:43.341314 ,longitude:141.679841}, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"月形温泉"
+        });
+
+        let pin4 = new Microsoft.Maps.Pushpin({latitude:43.339088 ,longitude:141.668869}, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"樺戸博物館"
+        });
+
+        let pin5 = new Microsoft.Maps.Pushpin({latitude:43.345453,longitude:141.660434 }, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"月の展望台"
+        });
+
+        let pin6 = new Microsoft.Maps.Pushpin({latitude:43.337783 ,longitude:141.671980}, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"さかいの肉屋"
+        });
+
+        let pin7 = new Microsoft.Maps.Pushpin({latitude:43.337310 ,longitude:141.673096}, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"popotto"
+        });
+
+        let pin8 = new Microsoft.Maps.Pushpin({latitude:43.335990 ,longitude:141.632894}, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"ツキガタアートビレッジ"
+        });
+        let pin9 = new Microsoft.Maps.Pushpin({latitude:43.377089,longitude: 141.613779 }, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"道民の森「月形地区」"
+        });
+        let pin10 = new Microsoft.Maps.Pushpin({latitude:43.332007, longitude:141.713172}, {
+            color: 'red',            //Color
+            enableHoverStyle:true,   //MouseOver
+            title:"宮島沼"
+        });
+
+
+        
+
+
+        //Add the pushpin to the map
+        map.entities.push(pin1);
+        map.entities.push(pin2);
+        map.entities.push(pin3);
+        map.entities.push(pin4);
+        map.entities.push(pin5);
+        map.entities.push(pin6);
+        map.entities.push(pin7);
+        map.entities.push(pin8);
+        map.entities.push(pin9);
+        map.entities.push(pin10);
+
+    Microsoft.Maps.Events.addHandler(pin1, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin1.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info1 = document.getElementById("info1");
+    info1.style.left = (point.x - 80) + "px";
+    info1.style.top = (point.y - 100) + "px";
+    info1.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin1, "mouseout", function (e) {
+    var info1 = document.getElementById("info1");
+    info1.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin2, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin2.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info2 = document.getElementById("info2");
+    info2.style.left = (point.x - 80) + "px";
+    info2.style.top = (point.y - 100) + "px";
+    info2.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin2, "mouseout", function (e) {
+    var info2 = document.getElementById("info2");
+    info2.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin3, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin3.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info3 = document.getElementById("info3");
+    info3.style.left = (point.x - 80) + "px";
+    info3.style.top = (point.y - 100) + "px";
+    info3.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin3, "mouseout", function (e) {
+    var info3 = document.getElementById("info3");
+    info3.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin4, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin4.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info4 = document.getElementById("info4");
+    info4.style.left = (point.x - 80) + "px";
+    info4.style.top = (point.y - 100) + "px";
+    info4.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin4, "mouseout", function (e) {
+    var info4 = document.getElementById("info4");
+    info4.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin5, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin5.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info5 = document.getElementById("info5");
+    info5.style.left = (point.x - 80) + "px";
+    info5.style.top = (point.y - 100) + "px";
+    info5.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin5, "mouseout", function (e) {
+    var info5 = document.getElementById("info5");
+    info5.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin6, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin6.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info6 = document.getElementById("info6");
+    info6.style.left = (point.x - 80) + "px";
+    info6.style.top = (point.y - 100) + "px";
+    info6.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin6, "mouseout", function (e) {
+    var info6 = document.getElementById("info6");
+    info6.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin7, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin7.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info7 = document.getElementById("info7");
+    info7.style.left = (point.x - 80) + "px";
+    info7.style.top = (point.y - 100) + "px";
+    info7.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin7, "mouseout", function (e) {
+    var info7 = document.getElementById("info7");
+    info7.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin8, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin8.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info8 = document.getElementById("info8");
+    info8.style.left = (point.x - 80) + "px";
+    info8.style.top = (point.y - 100) + "px";
+    info8.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin8, "mouseout", function (e) {
+    var info8 = document.getElementById("info8");
+    info8.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin9, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin9.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info9 = document.getElementById("info9");
+    info9.style.left = (point.x - 80) + "px";
+    info9.style.top = (point.y - 100) + "px";
+    info9.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin9, "mouseout", function (e) {
+    var info9 = document.getElementById("info9");
+    info9.style.display = "none";
+});
+
+Microsoft.Maps.Events.addHandler(pin10, "mouseover", function (e) {
+    var point = map.tryLocationToPixel(pin10.getLocation(), Microsoft.Maps.PixelReference.page);
+
+    var info10 = document.getElementById("info10");
+    info10.style.left = (point.x - 80) + "px";
+    info10.style.top = (point.y - 100) + "px";
+    info10.style.display = "block";
+}); 
+
+    Microsoft.Maps.Events.addHandler(pin10, "mouseout", function (e) {
+    var info10 = document.getElementById("info10");
+    info10.style.display = "none";
+});
+
+       
+        
+    }
+
+
+</script>
+
+
+</body>
+</html>
